@@ -1,0 +1,34 @@
+name: '🏆 Feature Request'
+title: '<Enter your title here>'
+description: 'Use this template to outline a new feature.'
+labels: ["type:enhancement"]
+projects: ["yzyflow/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ☝️ The title should be short and descriptive.
+         It should give a short preview of the proposed feature and briefly summarize the main idea.
+        Example: "New dashboard widget dispaying user analytics in real time"
+        A feature request can be an enhancement to an existing feature or a completely new feature. 
+  - type: textarea
+    attributes:
+      label: '🏆 Feature Description'
+      description: 'Describe the feature'
+      value: "The feature should ..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '🎯 Rationale or Use Cases'
+      description: 'Explain the rationale or use cases for the feature.'
+      value: "The rationale or use cases for this feature are ..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '🚀 Possible Impact on Existing Features or Future Development'
+      description: 'Describe the possible impact of this feature on existing features or future development.'
+      value: "The possible impact of this feature on existing features or future development is ..."
+    validations:
+      required: false

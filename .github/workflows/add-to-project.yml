@@ -1,0 +1,20 @@
+name: Add issues & PRs to YZYflow project
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  add_to_project:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Add to YZYflow project
+        uses: actions/add-to-project@v1
+        with:
+          project-url: https://github.com/orgs/yzyflow/projects/1
+          github-token: ${{ secrets.YZYFLOW_PROJECT_TOKEN }}

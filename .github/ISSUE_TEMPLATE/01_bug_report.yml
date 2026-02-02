@@ -1,0 +1,57 @@
+name: "🪲 Bug Report"
+description: 'Use this template for bugs in existing features.'
+title: "[Bug] "
+labels: ["type:bug"]
+projects: ["yzyflow/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        The title should be short and descriptive.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 🎯 What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '🔄 Steps to Reproduce'
+      description: 'Please provide a detailed list of steps that reproduce the issue.'
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: '📱 Device'
+      description: 'Please select the device where the bug was encountered.'
+      options:
+        - All
+        - Desktop
+        - Tablet 
+        - Mobile
+        - Kiosk
+        - Not relevant
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 📝 Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell  
+  - type: textarea
+    attributes:
+      label: '💡 Possible Solutions or Ideas'
+      description: 'If you have any possible solutions or ideas, please describe them here. Suggestions and ideas can help speed up the bug fixing process and may provide new insights into the problem.'
+      value: "The possible solutions or ideas are ..."
+    validations:
+      required: false

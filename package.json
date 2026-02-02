@@ -1,0 +1,41 @@
+{
+  "name": "@yzyflow/template-default",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Template repository for YZYflow modules (e.g. YZYticket, YZTstaff, YZYpos, ...)",
+  "author": "YZYflow <dev@yzyflow.com>",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yzyflow/template-default.git"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "yarn": ">=1.22.0"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --check '**/*.{js,jsx,ts,tsx,json,md,yml,yaml}'",
+    "test": "echo 'No tests configured' && exit 0",
+    "build": "echo 'No build step configured for template' && exit 0",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-react": "^7.35.0",
+    "prettier": "^3.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
