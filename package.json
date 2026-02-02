@@ -1,10 +1,10 @@
 {
-  "name": "@emisys/audience-pos-hardware-interface",
+  "name": "@yzyflow/yzy-pos-hardware-interface",
   "version": "1.0.34",
   "description": "Provide the global variable injected in the Point of Sale website by the native wrapper application",
-  "repository": "https://github.com/Emisys/audience-pos-hardware-interface.git",
-  "homepage": "https://github.com/Emisys/audience-pos-hardware-interface",
-  "author": "Emisys Team <support-tech@emisys.com>",
+  "repository": "https://github.com/yzyflow/yzy-pos-hardware-interface.git",
+  "homepage": "https://github.com/yzyflow/yzy-pos-hardware-interface",
+  "author": "YZYflow <dev@yzyflow.com>",
   "license": "UNLICENSED",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

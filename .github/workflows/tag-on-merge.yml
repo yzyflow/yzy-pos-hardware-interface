@@ -1,0 +1,53 @@
+name: Tag on merge
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate tag based on year/week
+        id: version
+        run: |
+          BASE_TAG=$(date "+%yw%V")
+          echo "🔍 Base tag: $BASE_TAG"
+
+          TAGS=$(git tag --list "${BASE_TAG}[a-z]" | sort)
+
+          if [ -z "$TAGS" ]; then
+            SUFFIX="a"
+          else
+            LAST_TAG=$(echo "$TAGS" | tail -n 1)
+            LAST_SUFFIX=${LAST_TAG: -1}
+            NEXT_SUFFIX=$(echo "$LAST_SUFFIX" | tr "a-y" "b-z" | tr "z" "z") # z remains z
+            if [ "$LAST_SUFFIX" = "z" ]; then
+              echo "❌ Error: Weekly tag suffix reached 'z'."
+              exit 1
+            fi
+            SUFFIX=$NEXT_SUFFIX
+          fi
+
+          NEW_TAG="${BASE_TAG}${SUFFIX}"
+          echo "✅ New tag: $NEW_TAG"
+          echo "tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create and push new tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag ${{ steps.version.outputs.tag }}
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} ${{ steps.version.outputs.tag }}
