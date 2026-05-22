@@ -4,7 +4,7 @@ import EmisysPrinter from './posapp_emisys/EmisysPrinter';
 import EmisysTerminal, {EmisysTerminalSaleStatus} from './posapp_emisys/EmisysTerminal';
 import EmisysVivawallet, { EmisysVivawalletPosSaleStatus } from './posapp_emisys/EmisysVivawallet';
 import EmisysVivawalletPos from './posapp_emisys/EmisysVivawalletPos';
-import EmisysLogsManager from "./posapp_emisys/EmisysLogsManager";
+import EmisysLogsManager, { LogsModel } from "./posapp_emisys/EmisysLogsManager";
 import EmisysCamera from "./posapp_emisys/EmisysCamera";
 import EmisysLaser from "./posapp_emisys/EmisysLaser";
 import EmisysBluetoothPrinter from "./posapp_emisys/EmisysBluetoothPrinter";
@@ -32,4 +32,5 @@ declare namespace emisys {
   export type EmisysVivawalletSaleStatusType = EmisysVivawalletSaleStatus;
   export type EmisysVivawalletPosSaleStatusType = EmisysVivawalletPosSaleStatus;
   export type EmisysTerminalSaleStatusType = EmisysTerminalSaleStatus;
+  export type EmisysLogsModel = LogsModel;
 }
