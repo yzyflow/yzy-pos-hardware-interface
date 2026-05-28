@@ -3,6 +3,8 @@ import EmisysSystemComputer from './EmisysSystemComputer';
 
 type BatteryLevelType = 'low' | 'high' | 'critical';
 
+type IsInstalledAppCallbackType = (installed: boolean) => void;
+
 declare interface BatteryStatus {
   /**
    * Is device connected to power plug?
@@ -114,8 +116,9 @@ export default class EmisysSystem {
    * Ask if an application is installed on the device.
    * @param urlAndroid The URL to open the application on Android.
    * @param urlIOS The URL to open the application on iOS.
+   * @param callback The callback to call when the installed app status has been queried.
    */
-  askIfAppIsInstalled(urlAndroid: string, urlIOS: string): void;
+  askIfAppIsInstalled(urlAndroid: string | string[], urlIOS: string | string[], callback: IsInstalledAppCallbackType): void;
 
   /**
    * Return true if the application is installed on the device.
