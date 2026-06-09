@@ -124,4 +124,14 @@ export default class EmisysSystem {
    * Return true if the application is installed on the device.
    */
   isAppInstalled(): boolean;
+
+  /**
+   * Return orientation of device
+   */
+  getOrientation(): 'landscape' | 'portrait'| 'auto';
+
+  /**
+   * Return orientation of device
+   */
+  setOrientation(orientation: 'landscape' | 'portrait'| 'auto' ): void;
 }
