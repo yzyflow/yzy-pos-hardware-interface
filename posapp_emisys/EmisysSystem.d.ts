@@ -2,6 +2,7 @@
 import EmisysSystemComputer from './EmisysSystemComputer';
 
 type BatteryLevelType = 'low' | 'high' | 'critical';
+export type OrientationType = 'landscape' | 'portrait'| 'auto'
 
 type IsInstalledAppCallbackType = (installed: boolean) => void;
 
@@ -128,10 +129,10 @@ export default class EmisysSystem {
   /**
    * Return orientation of device
    */
-  getOrientation(): 'landscape' | 'portrait'| 'auto';
+  getOrientation(): OrientationType;
 
   /**
    * Return orientation of device
    */
-  setOrientation(orientation: 'landscape' | 'portrait'| 'auto' ): void;
+  setOrientation(orientation: OrientationType ): void;
 }
