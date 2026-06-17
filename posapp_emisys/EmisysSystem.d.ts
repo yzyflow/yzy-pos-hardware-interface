@@ -48,6 +48,7 @@ export default class EmisysSystem {
    * @deprecated Superseded with computer.getIpAddress()
    */
   getIpAddress(): string | null;
+
   computer?: EmisysSystemComputer;
 
   /**
@@ -101,6 +102,12 @@ export default class EmisysSystem {
    * coping with the web page.
    */
   simulation?: boolean;
+
+  /**
+   * The bridge is running in dev or test mode if the returned value is true.
+   * A bridge compiled for production mode returns false.
+   */
+  isTestMode(): boolean;
 
   /**
    * Put or remove android kiosk mode depending on the param.
