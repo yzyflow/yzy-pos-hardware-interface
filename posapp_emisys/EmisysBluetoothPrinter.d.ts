@@ -14,9 +14,11 @@ export default class EmisysBluetoothPrinter {
   printPOSCommand(command: string): void;
 
   /**
-   * Register a callback that's called if printing fails
+   * Register a callback that's called when printing completes.
+   * In case of success, the message is null.
+   * In case of failure, the message contains the error text
    */
-  setErrorCallback(callback: (message: string) => void | null): void;
+  setDoneCallback(callback: (message: string | null) => void): void;
 
   /**
    *  Print text with size and align configuration
