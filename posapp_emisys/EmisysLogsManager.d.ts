@@ -1,4 +1,5 @@
 declare interface LogsModel {
+  key?: string;
   dateTime: string;
   type: 'info'|'warning'|'error';
   message: string;
@@ -7,6 +8,7 @@ declare interface LogsModel {
 
 type getLogListCallback = (logs: LogsModel[]) => void;
 type getChangeCounterCallback = (counter: number) => void;
+type NewLogCallback = (log: LogsModel) => void;
 
 export default class EmisysLogsManager {
   /**
@@ -48,6 +50,7 @@ export default class EmisysLogsManager {
   setMaxLogListLength(length: number): void;
 
   /**
+   * Deprecated as of 2026-07-05
    * Get a counter incremented each time an entry is added to the log.
    * @param {getChangeCounterCallback} callback Function called with the counter value.
    */
@@ -58,4 +61,10 @@ export default class EmisysLogsManager {
    * @param {getLogListCallback} callback Function called when the list is ready.
    */
   getLogList(callback: getLogListCallback): void;
+
+  /**
+   * Register a callback that gets every log entry from the bridge.
+   * @param {NewLogCallback | null} callback Pass null to remove the callback.
+   */
+  registerNewLogCallback(callback: NewLogCallback | null): void;
 }
