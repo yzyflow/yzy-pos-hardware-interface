@@ -2,7 +2,14 @@
 import EmisysSystemComputer from './EmisysSystemComputer';
 
 type BatteryLevelType = 'low' | 'high' | 'critical';
-export type OrientationType = 'landscape' | 'portrait'| 'auto'
+export type OrientationType =
+    | 'LANDSCAPE_RIGHT'
+    | 'LANDSCAPE_LEFT'
+    | 'LANDSCAPE'
+    | 'PORTRAIT_UP'
+    | 'PORTRAIT_DOWN'
+    | 'PORTRAIT'
+    | 'ALL';
 
 type IsInstalledAppCallbackType = (installed: boolean) => void;
 
