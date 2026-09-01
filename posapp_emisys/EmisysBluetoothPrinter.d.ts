@@ -6,7 +6,7 @@ export default class EmisysBluetoothPrinter {
   /**
    *  Init Bluetooth printer
    */
-  initPrinter();
+  initPrinter(charset?: string | null): void;
 
   /**
    * Send command to Bluetooth printer
@@ -14,7 +14,7 @@ export default class EmisysBluetoothPrinter {
   printPOSCommand(command: string): void;
 
   /**
-   * Register a callback that's called when printing completes.
+   * Register a callback called when printing completes.
    * In case of success, the message is null.
    * In case of failure, the message contains the error text
    */
